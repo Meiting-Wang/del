@@ -66,7 +66,7 @@ del "read*.tex"
 return list
 ```
 
-## 五、输出效果展示
+## 五、输出展示
 
 ```stata
 del ".\read*.tex"
