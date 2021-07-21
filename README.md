@@ -38,35 +38,43 @@ github install Meiting-Wang/del
 **命令语法**：
 
 ```stata
-del ["][filespec]["]
+del ["]filespec["]
 ```
 
-> - `filespec`: 输入要找寻的文件名格式，如`*`、`read.tex`、`read*.tex`、`..\*`、`c:\Windows\*.exe`等
+> - `filespec`: 输入要删除的文件名的格式，如`*`、`read.tex`、`read*.tex`、`..\*`、`c:\Windows\*.exe`等
 > - 命令的使用很简单，更多细节可以`help del`。
 
 ## 四、实例
 
 ```stata
-del //展示当前文件夹的所有文件
-del * //展示当前文件夹的所有文件
-del .\mydir\* //展示当前文件夹下子文件夹 "mydir" 中的所有文件
-del ..\* //展示上一级文件夹下的所有文件
-del del.* //展示当前文件夹符合 "del.*" 格式的文件
-del *.ado //展示当前文件夹符合 "*.ado" 格式的文件
-del c:\Windows\*.exe //展示 "c:\Windows\" 路径下符合 "*.exe" 格式的文件
-del `c(sysdir_plus)'*.txt //展示 Stata plus 文件夹中符合 "*.txt" 格式的文件
-ret list //展示储存在r()中的内容
+* 单个文件的删除
+del read.tex
+del "read.tex"
+del ".\read.tex"
+del "..\read.tex"
+del "X:\exercise\Stata\del\read.tex"
+
+* 多个文件的删除
+del *
+del "read*.tex"
+del ".\read*.tex"
+del "..\read*.tex"
+del "X:\exercise\Stata\del\read*.tex"
+
+* 获得返回值
+del "read*.tex"
+return list
 ```
 
 ## 五、输出效果展示
 
 ```stata
-del c:\Windows\*o*.exe
+del ".\read*.tex"
 ```
 
 ```stata
-dirname: c:\Windows\
-  files: "explorer.exe" "notepad.exe" "splwow64.exe"
+location dirname: X:\exercise\Stata\del\
+    delete files: "read.tex" "read2.tex" "read3.tex"
 ```
 
 ```stata
@@ -75,11 +83,11 @@ return list
 
 ```stata
 macros:
-            r(dirname) : "c:\Windows\"
-      r(write_dirname) : "c:\Windows\"
-            r(pattern) : "*o*.exe"
-          r(files_num) : "3"
-              r(files) : ""explorer.exe" "notepad.exe" "splwow64.exe""
+   r(location_dirname) : "X:\exercise\Stata\del\"
+      r(write_dirname) : ".\"
+     r(delete_pattern) : "read*.tex"
+   r(delete_files_num) : "3"
+       r(delete_files) : ""read.tex" "read2.tex" "read3.tex""
 ```
 
 > 点击【阅读原文】可进入该命令的 github 项目。
