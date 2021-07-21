@@ -29,3 +29,6 @@ github install Meiting-Wang/fn
 github install Meiting-Wang/del
 github install Meiting-Wang/mas
 
+h fn
+h del
+h mas
