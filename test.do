@@ -24,3 +24,8 @@ dir ..\read*.tex
 del "..\read*.tex"
 ret list
 
+
+github install Meiting-Wang/fn
+github install Meiting-Wang/del
+github install Meiting-Wang/mas
+

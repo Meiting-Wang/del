@@ -1,7 +1,7 @@
 {smcl}
 {right:Updated time: July 20, 2021}
 {* -----------------------------title------------------------------------ *}{...}
-{p 0 16 2}
+{p 0 14 2}
 {bf:[W-15] del} {hline 2} Delete one or more files. You can view the source code in {browse "https://github.com/Meiting-Wang/del":github}.
 
 
